@@ -1,0 +1,23 @@
+﻿@page
+@model WebApplication1.Pages.Shared.LoginPartialModel
+@if(User.Identity.IsAuthenticated){
+	<form method="post" asp-page="/Acount/LogOut" class="form-inline">
+		<span class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+			Welcome @User.Identity.Name
+		</span>
+		<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+			<li class="dropdown-item">
+				<button class="m-lg-2 btn btn-link" asp-action="LogOut()">log Out</button>
+			</li>
+			<li class="dropdown-item">
+				<a class="nav-link text-dark">New User</a>
+			</li>
+			<li class="dropdown-item">
+				<a class="nav-link text-dark">Manage Clames</a>
+			</li>
+		</ul>
+	</form>
+} else
+{
+	<a class="btn btn-link" asp-page="/Login">Login</a>
+}

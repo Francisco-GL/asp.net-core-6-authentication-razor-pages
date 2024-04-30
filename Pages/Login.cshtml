@@ -1,0 +1,59 @@
+﻿@page
+@model WebApplication1.Pages.LoginModel
+@{
+}
+<link rel="stylesheet" href="~/css/login.css" asp-append-version="true" />
+<div class="row" id="login-container">
+    <div class="col-md-4">
+        <form method="post">
+	        <h1 class="text-center mb-2">Login</h1>
+            <hr />
+            <div>
+                <label>Email</label>
+                <input type="email" class="form-control" name="email" id="email" style="width: 75%;" name="password" id="password" placeholder="ejemplo@ejemplo.com"/>
+            </div>
+            <div>
+                <label>Password</label>
+                <input class="form-control" style="width: 75%;" name="password" id="password" type="password" name="password" id="password" placeholder="Password"/>
+            </div>
+            <hr />
+            <div>
+                <button type="submit" class="btn btn-outline-success w-100">Login</button>
+            </div>
+            <span id="msg" class="text-danger text-center"></span>
+            @if (ViewData["ValidateMessage"] != null)
+            {
+                <br />
+                <br />
+                <div>
+                    <label class="w-100 text-center text-danger border-danger border-bottom">@ViewData["ValidateMessage"]</label>
+                </div>
+            }
+        </form>
+        <button class="btn btn-info w-100 mt-4" onclick="test()">Test</button>
+     </div>
+   </div>
+
+   <div class="d-flex justify-content-center row mt-4 border-top border-danger border-4">
+       <div class="col-md-4">
+           <form id="registerForm" method="post">
+               <h2 class="text-center">Login</h2>
+               <hr />
+               <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+               <div class="form-floating mb-3">
+                   <input asp-for="UserCredential.UserName" class="form-control" autocomplete="off" aria-required="true" placeholder="name@example.com"/>
+                   <label asp-for="UserCredential.UserName">Email</label>
+                   <span asp-validation-for="UserCredential.UserName" class="text-danger"></span>
+               </div>
+               <div class="form-floating mb-3">
+                   <input asp-for="UserCredential.Password" class="form-control" autocomplete="off" aria-required="true" placeholder="Password"/>
+                   <label asp-for="UserCredential.Password">Password</label>
+                   <span asp-validation-for="UserCredential.Password" class="text-danger"></span>
+               </div>
+               <hr />
+               <button class="btn btn-outline-success w-100" type="submit">Login</button>
+           </form>
+       </div>
+   </div>
+   <script>
+    </script>
